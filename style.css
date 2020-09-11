@@ -1,0 +1,88 @@
+:root {
+    font-size: 16pt;
+}
+
+/* Element Styling */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+button,
+input::placeholder {
+    font-family: 'Titillium Web', sans-serif;
+}
+
+header {
+    background: #1BA8F0;
+    padding: 2% 0;
+}
+
+
+main {
+    padding: 2% 0;
+}
+
+h1 {
+    font-family: 'Amaranth', sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+button {
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 1% 2%;
+    margin-top: 3%;
+    border: none;
+    border-radius: 10px;
+    -webkit-appearance: none;
+}
+
+button.accept {
+    background: #2ad156;
+    padding: 1vw;
+}
+
+button.cancel {
+    background: #c24b13;
+}
+
+input {
+    width: 100%;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 0.75vw 2vw;
+    margin: 5vw 0;
+}
+
+ul {
+    margin-top: 5%;
+}
+
+li {
+    text-align: center;
+}
+
+li:hover {
+    cursor: pointer;
+}
+
+/* Class Styling */
+
+.flex-space {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.strikeout {
+    text-decoration: line-through;
+    color: #B8C2CC;
+}
