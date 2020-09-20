@@ -25,11 +25,13 @@
                 <form @submit.prevent v-if="state === 'edit'" class="add-item-form">
                     <div class="flex-space">
                         <input id="add-item" v-model="newItem" @keyup.enter="saveItem" type="text" placeholder="Add an item">
+                        <label for="priority-check">High Priority:</label>
+                        <input id="priority-check" type="checkbox" @click="togglePriority">
                         <button class="accept" @click="saveItem" :disabled="newItem.length === 0">Save Item</button>
                     </div>
                 </form>
                 <ul class="flex flex-column">
-                    <li v-for="item in reversedItems" :class="{strikeout: item.purchased}" @click="togglePurchased(item)">{{ item.label }}</li>
+                    <li v-for="item in reversedItems" :class="{strikeout: item.purchased, highlight:item.highPriority}" @click="togglePurchased(item)">{{ item.label }}</li>
                 </ul>
                 <div class="flex flex-column">
                     <button class="cancel" v-for="item in reversedItems" @click="removeItem(item)">Remove Item</button>

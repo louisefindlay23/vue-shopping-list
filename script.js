@@ -27,9 +27,18 @@ var shoppingList = new Vue({
     },
     methods: {
         saveItem: function () {
+            let priority = false;
+
+            if (document.getElementById("priority-check").checked === true) {
+                priority = true;
+            } else {
+                priority = false;
+            }
+
             this.items.push({
                 label: this.newItem,
                 purchased: false,
+                highPriority: priority,
             }, );
             this.newItem = '';
         },
@@ -42,6 +51,11 @@ var shoppingList = new Vue({
         },
         togglePurchased: function (item) {
             item.purchased = !item.purchased;
+        },
+        togglePriority: function (priority) {
+            if (document.getElementById("priority-check").rolesSelected != "") {
+                priority = true;
+            } else(priority = false);
         }
     }
 });

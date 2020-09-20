@@ -53,6 +53,10 @@ button.cancel {
     background: #c24b13;
 }
 
+.highlight {
+    color: deepskyblue;
+}
+
 input {
     width: 100%;
     border: 2px solid #000;
