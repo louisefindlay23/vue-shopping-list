@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <title>Shopping List App</title>
     <link href="https://fonts.googleapis.com/css2?family=Amaranth:wght@700&family=Titillium+Web&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -18,72 +17,28 @@
         </header>
 
         <main>
-            <div class="flex-space">
+            <div class="flex flex-column">
                 <button class="accept" v-if="state === 'default'" @click="changeState('edit')">Add Item</button>
                 <button class="cancel" v-else @click="changeState('default')">Cancel Adding Item</button>
 
+                <div class="flex"></div>
                 <form @submit.prevent v-if="state === 'edit'" class="add-item-form">
                     <div class="flex-space">
                         <input id="add-item" v-model="newItem" @keyup.enter="saveItem" type="text" placeholder="Add an item">
                         <button class="accept" @click="saveItem" :disabled="newItem.length === 0">Save Item</button>
                     </div>
                 </form>
-                <ul>
+                <ul class="flex flex-column">
                     <li v-for="item in reversedItems" :class="{strikeout: item.purchased}" @click="togglePurchased(item)">{{ item.label }}</li>
                 </ul>
+                <div class="flex flex-column">
+                    <button class="cancel" v-for="item in reversedItems" @click="removeItem(item)">Remove Item</button>
+                </div>
                 <p v-if="reversedItems.length === 0">Nice job! You've bought all your items.</p>
             </div>
         </main>
     </div>
 
-    <!-- JS -->
-    <script>
-        var shoppingList = new Vue({
-            el: '#shopping-list',
-            data: {
-                state: 'default',
-                header: 'shopping list app',
-                newItem: '',
-                items: [{
-                        label: '10 party hats',
-                        purchased: false,
-                        highPriority: false,
-                    },
-                    {
-                        label: '2 board games',
-                        purchased: true,
-                        highPriority: false,
-                    }, {
-                        label: '20 cups',
-                        purchased: false,
-                        highPriority: true,
-                    },
-                ]
-            },
-            computed: {
-                reversedItems() {
-                    return this.items.slice(0).reverse();
-                }
-            },
-            methods: {
-                saveItem: function() {
-                    this.items.push({
-                        label: this.newItem,
-                        purchased: false,
-                    }, );
-                    this.newItem = '';
-                },
-                changeState: function(newState) {
-                    this.state = newState;
-                    this.newItem = '';
-                },
-                togglePurchased: function(item) {
-                    item.purchased = !item.purchased;
-                }
-            }
-        })
-
-    </script>
-</body>
-
-</html>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="script.js"></script>
+</body></html>

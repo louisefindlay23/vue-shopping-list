@@ -75,11 +75,16 @@ li:hover {
 
 /* Class Styling */
 
-.flex-space {
+.flex {
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
 }
 
 .strikeout {
