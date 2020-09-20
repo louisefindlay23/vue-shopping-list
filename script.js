@@ -51,11 +51,6 @@ var shoppingList = new Vue({
         },
         togglePurchased: function (item) {
             item.purchased = !item.purchased;
-        },
-        togglePriority: function (priority) {
-            if (document.getElementById("priority-check").rolesSelected != "") {
-                priority = true;
-            } else(priority = false);
         }
     }
 });
