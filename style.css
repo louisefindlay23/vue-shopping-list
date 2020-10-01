@@ -53,6 +53,10 @@ button.cancel {
     background: #c24b13;
 }
 
+.highlight {
+    color: deepskyblue;
+}
+
 input {
     width: 100%;
     border: 2px solid #000;
@@ -75,11 +79,16 @@ li:hover {
 
 /* Class Styling */
 
-.flex-space {
+.flex {
     display: flex;
-    flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
 }
 
 .strikeout {
